@@ -35,7 +35,7 @@ body {
 
 .container {
 	width: 80%;
-	margin: 0 auto;
+	margin: 3em auto;
 }
 
 h1 { font: @h1; }
@@ -43,10 +43,7 @@ h2 { font: @h2; }
 h3 { font: @h3; }
 h4 { font: @h4; }
 
-p {
-	font: @p;
-	margin: 0;
-}
+p { font: @p; }
 
 a, a:link, a:active, a:visited, a:hover {
 	color: black;
@@ -59,10 +56,50 @@ input {
 
 }
 
-/* Content
-* 
+/* Content:header
+ *  
 --------------------------------------------- */
 
+.header {
+	text-align: center;
+}
+
+
+
+
+/* Content:add new book form
+ *  
+--------------------------------------------- */
+.new-book {
+	width: 40%;
+	margin: 0 auto;
+	background-color: white;
+
+	label {
+		width: 100%;
+		margin-top: 1em;
+	}
+}
+
+
+
+
+
+
+/* Content:book block
+ *  
+--------------------------------------------- */
+.books { margin-top: 3em; }
+
+.book {
+	width: 20%;
+	background-color: white;
+
+}
+
+.book__cover img {
+	width: 100%;
+}
 
 
 
