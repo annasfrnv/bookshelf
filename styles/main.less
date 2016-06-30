@@ -1,6 +1,8 @@
 /* Variables
 --------------------------------------------- */
 @light-gray: 		#f2f2f2;
+@mint: 				#2fdab8;
+@dark-mint: 		#39ac95;
 
 //font: font-style font-variant font-weight font-size/line-height font-family;
 @h1:  bold 2em "Montserrat", Arial, Helvetica, sans-serif;
@@ -12,6 +14,7 @@
 
 /* Mixins 
 --------------------------------------------- */
+
 
 
 
@@ -50,7 +53,28 @@ a, a:link, a:active, a:visited, a:hover {
 	text-decoration: none;
 }
 
-button, .btn {}
+a.btn {
+	display: inline-block;
+	border: none;
+    border-radius: 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: @mint;
+    color: white;
+    font-weight: bold;
+
+    -webkit-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+    	background-color: @dark-mint;
+    }
+}
 
 input {
 
@@ -62,6 +86,25 @@ input {
 
 .header {
 	text-align: center;
+	background-color: white;
+	padding: 3em 0;
+
+	h1 { 
+		margin-top: .2em; 
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		display: inline-block;
+		color: @mint;
+	}
+
+	.btn { margin-top: 1em; }
+}
+
+.header__logo--icon {
+	width: 22px;
+	display: inline-block;
+	margin-right: 2px;
+	
 }
 
 
@@ -72,13 +115,19 @@ input {
 --------------------------------------------- */
 .new-book {
 	width: 40%;
-	margin: 0 auto;
+	margin: 2em auto;
 	background-color: white;
+	padding: 1.5em 2em;
 
 	label {
 		width: 100%;
 		margin-top: 1em;
 	}
+}
+
+.new-book__title {
+	text-align: center;
+	margin-top: 0;
 }
 
 

@@ -34,55 +34,57 @@
 
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <div class="container">
 
-        <header class="header">
-            <a href="#" class="header__logo"><h1>Bookshelf</h1></a>
-            <p>My current & past readings in one place</p>
-
-            <a href="#" class="header__cta-btn">Add new</a>
-        </header>
-
-        <section class="new-book">
-            <h2>Add new book</h2>
-
-            <form class="form" method="post">
-
-                <label for="title">Title</label>
-                <input type="text" name="title" class="form__title">
-
-                <label for="description">Description</label>
-                <input type="text" name="description" class="form__description">
-
-                <label for="link">Amazon Link</label>
-                <input type="text" name="link" class="form__link">
-                
-                <button type="reset">reset</button>
-                <button type="submit">add</button>
-            </form>
-        </section>
-
-        <main class="books">
-            <nav class="books__menu">
-                <a href="#">In progress</a>
-                <a href="#">Past</a>
-                <a href="#">Future</a>
-            </nav>
-
-            <div class="book">
-                <div class="book__cta">
-                    <span class="book__cta--like"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                    <span class="book__cta--delete"><i class="fa fa-times" aria-hidden="true"></i></span>
-                </div>
-                <div class="book__cover">
-                    <a href="#"><img src="img/book1.jpg" alt="Book title"></a>
-                </div>
-                <h3 class="book__title">The title</h3>
-                <p class="book__blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat molestiae non officia harum excepturi ea sed voluptatibus facilis incidunt, nesciunt accusantium possimus iure aut, repellendus vero suscipit ullam sequi culpa.</p>
-            </div>
-        </main>
+    <header class="header">
         
-    </div>
+        <a href="#" class="header__logo">
+            <img src="img/book.svg" alt="Book Icon" class="header__logo--icon">
+            <h1>Bookshelf</h1>
+        </a>
+        <p>My current, past & future <br> readings are all in one place</p>
+
+        <a href="#" class="btn">Add new</a>
+    </header>
+
+    <section class="new-book">
+        <h2 class="new-book__title">Add new book</h2>
+
+        <form class="form" method="post">
+
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form__title">
+
+            <label for="description">Description</label>
+            <input type="text" name="description" class="form__description">
+
+            <label for="link">Amazon Link</label>
+            <input type="text" name="link" class="form__link">
+            
+            <button type="reset">reset</button>
+            <button type="submit">add</button>
+        </form>
+    </section>
+
+    <main class="books container">
+        <nav class="books__menu">
+            <a href="#">In progress</a>
+            <a href="#">Past</a>
+            <a href="#">Future</a>
+        </nav>
+
+        <div class="book">
+            <div class="book__cta">
+                <span class="book__cta--like"><i class="fa fa-heart" aria-hidden="true"></i></span>
+                <span class="book__cta--delete"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+            <div class="book__cover">
+                <a href="#"><img src="img/book1.jpg" alt="Book title"></a>
+            </div>
+            <h3 class="book__title">The title</h3>
+            <p class="book__blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat molestiae non officia harum excepturi ea sed voluptatibus facilis incidunt, nesciunt accusantium possimus iure aut, repellendus vero suscipit ullam sequi culpa.</p>
+        </div>
+    </main>
+    
     
 
     
