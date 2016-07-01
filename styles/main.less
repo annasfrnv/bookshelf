@@ -53,6 +53,8 @@ a, a:link, a:active, a:visited, a:hover {
 	text-decoration: none;
 }
 
+img { width: 100%; }
+
 a.btn {
 	display: inline-block;
 	border: none;
@@ -113,21 +115,63 @@ input {
 /* Content:add new book form
  *  
 --------------------------------------------- */
-.new-book {
-	width: 40%;
+.form-area {
+	width: 35%;
 	margin: 2em auto;
 	background-color: white;
-	padding: 1.5em 2em;
+	padding: 1.5em 3em;
+	position: relative;
 
-	label {
-		width: 100%;
-		margin-top: 1em;
+	.form__cta--delete {
+		position: absolute;
+		top: 1.3em;
+		right: 2em;
+		font-size: 1.4em;
+		width: 30px;
+
+
+		&:hover {
+			opacity: .5;
+		}
 	}
 }
 
-.new-book__title {
-	text-align: center;
-	margin-top: 0;
+.form legend {
+	margin-bottom: .5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: none;
+}
+
+.form__control-buttons {
+	margin-top: 2em;
+	float: right;
+
+	button { 
+		margin-left: .2em; 
+		color: white;
+		text-transform: uppercase;
+		font-size: .9em;
+		font-weight: bold;
+		padding: 10px 25px;
+	}
+
+	.pure-button { background-color: #999; }
+
+	.button-success {
+		background-color: @mint;
+	}
+}
+
+
+
+.pure-form input[type=text]:focus { border-color: @mint; }
+
+.pure-form input[type=text] { 
+	padding: 10px;
+	width: 100%; 
+	box-shadow: none;
+	margin-top: .5em;
 }
 
 
@@ -143,11 +187,6 @@ input {
 .book {
 	width: 20%;
 	background-color: white;
-
-}
-
-.book__cover img {
-	width: 100%;
 }
 
 
