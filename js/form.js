@@ -17,6 +17,7 @@ class Form {
 	}
 
 	_addOnClick (event) {
+		event.preventDefault();
 
 		let hidden = true;
 
