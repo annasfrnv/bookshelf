@@ -1,3 +1,5 @@
-let menu = new Menu({
-	el: document.querySelector('.menu')
+'use stict';
+
+let form = new Form({
+	el: document.querySelector('body')
 });

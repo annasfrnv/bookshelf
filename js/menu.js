@@ -1,28 +1,41 @@
 "use strict";
 
-class NewBook {
+class Form {
 	constructor(options) {
 		this.el = options.el;
+		this.addBtn = this.el.querySelector('.add-btn');
+		this.deleteBtn = this.el.querySelector('.form__cta--delete');
+
+		this.form = this.el.querySelector('.form-area');
 
 		this._initEvents();
 	}
 
 	_initEvents () {
-		this.el.addEventListener('click', this._onMenuClick.bind(this));
+		this.addBtn.addEventListener('click', this._addOnClick.bind(this));
+		this.deleteBtn.addEventListener('click', this._removeOnClick.bind(this));
 	}
 
+	_addOnClick (event) {
 
-	_onMenuClick (event) {
-		let isItemClick = false;
-		if (event.target.classList.contains('menu__item')) {
-			isItemClick = true;
-			this._onMenuItemClick(event);
+		let hidden = true;
+
+		if (hidden) {
+			this.form.classList.remove('hidden');
+			hidden = false;
+		}
+	}
+
+	_removeOnClick (event) {
+
+		let hidden = false;
+
+		if (!hidden) {
+			this.form.classList.add('hidden');
+			hidden = true;
 		}
 
-		if (!isItemClick) {
-			this.el.classList.toggle('menu_open');
-		} 
-		
 	}
+
 
 }
