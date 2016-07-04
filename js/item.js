@@ -14,11 +14,18 @@ class Item {
 			let deleteButton = this.deleteButtons[i];
 
 			deleteButton.onclick = function() {
+				
 				let el = this.parentNode;
-				el.parentNode.removeChild(el);
+
+				el.classList.add('removed-item');
+
+				setTimeout(function(){
+					el.parentNode.removeChild(el);
+				}, 790);
 			};
 		}
 	}
+
 
 
 
