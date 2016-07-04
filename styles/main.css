@@ -161,6 +161,7 @@ a.btn:hover {
 }
 .book {
   width: 30%;
+  min-width: 350px;
   min-height: 225px;
   background-color: white;
   position: relative;
@@ -190,14 +191,14 @@ a.btn:hover {
 }
 .book__cover {
   float: left;
-  width: 40%;
+  width: 155px;
 }
 .book__cover img {
   display: block;
 }
 .book__content {
   float: left;
-  width: 60%;
+  width: 195px;
   padding: 2em 1em 2em 1.5em;
 }
 .book__content h3 {

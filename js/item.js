@@ -3,17 +3,17 @@
 class Item {
 	constructor(options) {
 		this.el = options.el;
-		this.deleteBtns = this.el.querySelectorAll('.book__cta');
+		this.deleteButtons = this.el.querySelectorAll('.book__cta');
 
 		this._initEvents();
 	}
 
 	_initEvents () {
-		for (var i = 0; i < this.deleteBtns.length; i++) {
+		for (var i = 0; i < this.deleteButtons.length; i++) {
 
-			let btn = this.deleteBtns[i];
-			console.log(btn);
-			btn.onclick = function() {
+			let deleteButton = this.deleteButtons[i];
+
+			deleteButton.onclick = function() {
 				let el = this.parentNode;
 				el.parentNode.removeChild(el);
 			};
