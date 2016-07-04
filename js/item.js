@@ -10,19 +10,22 @@ class Item {
 
 	_initEvents () {
 		for (var i = 0; i < this.deleteButtons.length; i++) {
-
-			let deleteButton = this.deleteButtons[i];
-
-			deleteButton.onclick = function() {
-				
-				let el = this.parentNode;
-
-				el.classList.add('removed-item');
-
-				setTimeout(function(){
-					el.parentNode.removeChild(el);
-				}, 790);
-			};
+			this._registerClickEvent(i);
 		}
+	}
+
+	_registerClickEvent (i) {
+		this.deleteButtons[i].addEventListener('click', this._deleteItem);
+	}
+
+	_deleteItem (event) {
+
+		let el = this.parentNode;
+
+		el.classList.add('removed-item');
+
+		setTimeout(function(){
+			el.parentNode.removeChild(el);
+		}, 790);
 	}
 }
