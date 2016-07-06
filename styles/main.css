@@ -173,20 +173,20 @@ a.btn:hover {
 .book:nth-child(3) {
   margin-right: 0;
 }
-.book__cta {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
-.book__cta img {
-  cursor: pointer;
-  position: absolute;
-  top: .5em;
-  right: .1em;
-  font-size: 1.4em;
+.form__delete,
+.book__delete {
+  display: block;
+  background: url(../img/close.svg) no-repeat;
+  background-size: contain;
   width: 30px;
+  height: 30px;
+  position: absolute;
+  right: .8em;
+  top: 1.3em;
+  cursor: pointer;
 }
-.book__cta img:hover {
+.form__delete:hover,
+.book__delete:hover {
   opacity: .5;
 }
 .book__cover {

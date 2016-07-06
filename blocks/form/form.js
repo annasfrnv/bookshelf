@@ -1,40 +1,45 @@
-'use strict';
+(function () {
+	'use strict';
 
-class Form {
-	constructor(options) {
-		this.el = options.el;
-		this.addBtn = this.el.querySelector('.add-btn');
-		this.deleteBtn = this.el.querySelector('.form__cta--delete');
+	class Form {
+		constructor(options) {
+			this.el = options.el;
+			this.addBtn = this.el.querySelector('.add-btn');
+			this.deleteBtn = this.el.querySelector('.form__delete');
 
-		this.form = this.el.querySelector('.form-area');
+			this.form = this.el.querySelector('.form-area');
 
-		this._initEvents();
-	}
+			this._initEvents();
+		}
 
-	_initEvents () {
-		this.addBtn.addEventListener('click', this._addOnClick.bind(this));
-		this.deleteBtn.addEventListener('click', this._removeOnClick.bind(this));
-	}
+		_initEvents () {
+			this.addBtn.addEventListener('click', this._addOnClick.bind(this));
+			this.deleteBtn.addEventListener('click', this._removeOnClick.bind(this));
+		}
 
-	_addOnClick (event) {
-		event.preventDefault();
+		_addOnClick (event) {
+			event.preventDefault();
 
-		let hidden = true;
+			let hidden = true;
 
-		if (hidden) {
-			this.form.classList.remove('hidden');
-			hidden = false;
+			if (hidden) {
+				this.form.classList.remove('hidden');
+				hidden = false;
+			}
+		}
+
+		_removeOnClick (event) {
+
+			let hidden = false;
+
+			if (!hidden) {
+				this.form.classList.add('hidden');
+				hidden = true;
+			}
+
 		}
 	}
 
-	_removeOnClick (event) {
-
-		let hidden = false;
-
-		if (!hidden) {
-			this.form.classList.add('hidden');
-			hidden = true;
-		}
-
-	}
-}
+	//Export
+	window.Form = Form;
+})(window);

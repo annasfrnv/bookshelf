@@ -191,24 +191,21 @@ a.btn {
 	}
 }
 
-.book__cta {
+.form__delete,
+.book__delete {
+	display: block;
+	background: url(../img/close.svg) no-repeat;
+	background-size: contain;
+	width: 30px;
+	height: 30px;
 	position: absolute;
-	right: 1em;
-	top: 1em;
+	right: .8em;
+	top: 1.3em;
+	cursor: pointer;
 
-	img {
-		cursor: pointer;
-		position: absolute;
-		top: .5em;
-		right: .1em;
-		font-size: 1.4em;
-		width: 30px;
-
-		&:hover {
-			opacity: .5;
-		}
+	&:hover {
+		opacity: .5;
 	}
-
 }
 
 .book__cover {

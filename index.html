@@ -14,7 +14,6 @@
         <!-- Favicon -->
        <link rel="icon" type="image/png" href="img/favicon.ico" />
 
-
         <!-- CSS
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <link rel="stylesheet" href="styles/normalize.css">
@@ -22,11 +21,10 @@
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-
         <!-- FONTS
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
         
     </head>
 <body>
@@ -53,83 +51,45 @@
     </header>
 
     <section class="form-area hidden">
-        <span class="form__cta--delete"><img src="img/close.svg" alt="Close Icon"></span>
+        <span class="form__delete"></span>
         <form class="form pure-form">
-        <fieldset>
-            <legend>Add new book</legend>
+            <fieldset>
+                <legend>Add new book</legend>
 
-            <input type="text" name="title" class="form__title" placeholder="Title"> 
-            <input type="text" name="description" class="form__description" placeholder="Short description">
-            <input type="text" name="url" class="form__link" placeholder="Amazon URL">
-            
-            <div class="form__control-buttons">
-                <button type="reset" class="pure-button">reset</button>
-                <button type="submit" class="button-success pure-button">submit</button>
-            </div>
-        </fieldset>
-    </form>
-        
+                <input type="text" name="title" class="form__title" placeholder="Title"> 
+                <input type="text" name="description" class="form__description" placeholder="Short description">
+                <input type="text" name="url" class="form__link" placeholder="Amazon URL">
+                
+                <div class="form__control-buttons">
+                    <button type="reset" class="pure-button">reset</button>
+                    <button type="submit" class="button-success pure-button">submit</button>
+                </div>
+            </fieldset>
+        </form>
     </section>
     
+    <main class="books container"></main>
 
+    <script type="text/x-tmpl" id="books">
+         <%for(let i=0; i < this.items.length; i++ ) {%>
+            <div class="book">
+                <span class="book__delete"></span>
+                <div class="book__cover">
+                    <a href="<%this.items[i].href%>"><img src="<%this.items[i].cover%>" alt="Book title"></a>
+                </div>
 
-    <main class="books container">
-<!--         <nav class="books__menu">
-            <a href="#">In progress</a>
-            <a href="#">Past</a>
-            <a href="#">Future</a>
-        </nav> -->
-
-        <div class="book">
-            <div class="book__cta">
-                <!--  <span class="book__cta--like"><i class="fa fa-heart" aria-hidden="true"></i></span> -->
-                <span class="book__cta--delete"><img src="img/close.svg" alt="Close Icon"></span>
+                <div class="book__content">
+                    <h3 class="book__title"><%this.items[i].title%></h3>
+                    <p class="book__blurb"><%this.items[i].blurb%></p>
+                </div>
+                
             </div>
-            <div class="book__cover">
-                <a href="#"><img src="img/book1.jpg" alt="Book title"></a>
-            </div>
-
-            <div class="book__content">
-                <h3 class="book__title">The title</h3>
-                <p class="book__blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat molestiae non officia harum </p>
-            </div>
-            
-        </div>
-
-        <div class="book">
-            <div class="book__cta">
-                <span class="book__cta--delete"><img src="img/close.svg" alt="Close Icon"></span>
-            </div>
-            <div class="book__cover">
-                <a href="#"><img src="img/book2.jpg" alt="Book title"></a>
-            </div>
-
-            <div class="book__content">
-                <h3 class="book__title">The title</h3>
-                <p class="book__blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat molestiae non officia harum </p>
-            </div>
-            
-        </div>
-
-        <div class="book">
-            <div class="book__cta">
-                <span class="book__cta--delete"><img src="img/close.svg" alt="Close Icon"></span>
-            </div>
-            <div class="book__cover">
-                <a href="#"><img src="img/book3.jpg" alt="Book title"></a>
-            </div>
-
-            <div class="book__content">
-                <h3 class="book__title">The title</h3>
-                <p class="book__blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat molestiae non officia harum </p>
-            </div>
-            
-        </div>
-
-    </main>
-    
+        <%}%>
+    </script>
     
 
+<!-- Template Engine -->
+<script type="text/javascript" src="template/engine.js"></script>
 
 <!-- Dependencies -->
 <script type="text/javascript" src="blocks/form/form.js"></script>

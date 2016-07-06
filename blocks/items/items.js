@@ -1,26 +1,37 @@
-'use strict';
+(function () {
+	'use strict';
 
-class Item {
-	constructor (options) {
-		this.el = options.el;
+	class Item {
+		constructor (options) {
+			this.el = options.el;
+			this.data = options.data;
 
-		this._initEvents();
-	}
+			this.render();
 
-	_initEvents () {
-		this.el.addEventListener('click', this._removeItem.bind(this));
-	}
+			this._initEvents();
+		}
 
-	_removeItem () {
-		
-		let target = event.target;
+		get _template () {
+			return document.querySelector('#books').innerHTML;
+		}
 
-		while (target != this.el) {
-		    if (target.classList.contains('book__cta')) {
-		      target.parentNode.hidden = !target.parentNode.hidden;
+		render () {
+			this.el.innerHTML = TemplateEngine(this._template, this.data);
+		}
+
+		_initEvents () {
+			this.el.addEventListener('click', this._removeItem.bind(this));
+		}
+
+		_removeItem () {
+			let target = event.target;
+
+		    if (target.classList.contains('book__delete')) {
+		    	this.el.removeChild(target.parentNode);
 		    }
-
-		    target = target.parentNode;
 		}
 	}
-}
+
+	//Export
+	window.Item = Item;
+})(window);
