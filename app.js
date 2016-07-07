@@ -2,10 +2,7 @@
 	'use stict';
 
 	let form = new Form({
-		el: document.querySelector('body'),
-		data: {
-			title: 'Add new book'
-		}
+		el: document.querySelector('body')
 	});
 
 	let book = new Item({
@@ -32,7 +29,9 @@
 					title: 	'На пределе',
 					blurb: 	'Неделя без жалости к себе',
 					href: 	'http://www.mann-ivanov-ferber.ru/books/na-predele/'
-				}
+				},
+
+
 			]
 		}
 	});

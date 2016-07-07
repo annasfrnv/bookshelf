@@ -19,13 +19,14 @@
 		}
 
 		render () {
-			this.form.innerHTML = TemplateEngine(this._template, this.data);
+			this.form.innerHTML = TemplateEngine(this._template);
 		}
 
 
 		_initEvents () {
 			this.el.addEventListener('click', this._onClick.bind(this));
 			this.submitBtn.addEventListener('click', this._onSubmit.bind(this));
+			this.form.addEventListener('click', this._onReset.bind(this));
 		}
 
 		_onClick (event) {
@@ -62,12 +63,16 @@
 		    	]
 		    };
 
-		    console.log(this.data);
-
 		    this.createItem(this.data);
 
 		    this.el.querySelector('form').reset();
 		    this._onClick(event);
+		}
+
+		_onReset (event) {
+			if (event.target.querySelector('[type=reset]')) {
+				this.el.querySelector('form').reset();
+			}
 		}
 
 		createItem (data) {

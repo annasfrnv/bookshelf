@@ -16,7 +16,7 @@
 		}
 
 		render () {
-			this.el.innerHTML = TemplateEngine(this._template, this.data);
+			this.el.insertAdjacentHTML('beforeend', TemplateEngine(this._template, this.data));
 		}
 
 		_initEvents () {
