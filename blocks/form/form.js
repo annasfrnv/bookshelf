@@ -4,39 +4,77 @@
 	class Form {
 		constructor(options) {
 			this.el = options.el;
-			this.addBtn = this.el.querySelector('.add-btn');
-			this.deleteBtn = this.el.querySelector('.form__delete');
-
 			this.form = this.el.querySelector('.form-area');
+			
+			this.data = {};
+			this.render();
+
+			this.submitBtn = this.el.querySelector('.form__submit');
 
 			this._initEvents();
 		}
 
-		_initEvents () {
-			this.addBtn.addEventListener('click', this._addOnClick.bind(this));
-			this.deleteBtn.addEventListener('click', this._removeOnClick.bind(this));
+		get _template () {
+			return document.querySelector('#form').innerHTML;
 		}
 
-		_addOnClick (event) {
+		render () {
+			this.form.innerHTML = TemplateEngine(this._template, this.data);
+		}
+
+
+		_initEvents () {
+			this.el.addEventListener('click', this._onClick.bind(this));
+			this.submitBtn.addEventListener('click', this._onSubmit.bind(this));
+		}
+
+		_onClick (event) {
+
 			event.preventDefault();
 
+			let target = event.target;
 			let hidden = true;
 
-			if (hidden) {
+			if (target.classList.contains('form__add-cta')) {
 				this.form.classList.remove('hidden');
 				hidden = false;
 			}
-		}
 
-		_removeOnClick (event) {
-
-			let hidden = false;
-
-			if (!hidden) {
+			if (target.classList.contains('form__delete') || target.classList.contains('form__submit')) {
 				this.form.classList.add('hidden');
 				hidden = true;
 			}
+		}
 
+
+		_onSubmit (event) {
+		    event.preventDefault();
+
+		    this.data = {
+
+		    	items: [
+					{
+						cover: 	'img/book1.jpg',
+						title: 	this.el.querySelector('[name="title"]').value,
+						blurb: 	this.el.querySelector('[name="description"]').value,
+						href: 	this.el.querySelector('[name="url"]').value
+					}
+		    	]
+		    };
+
+		    console.log(this.data);
+
+		    this.createItem(this.data);
+
+		    this.el.querySelector('form').reset();
+		    this._onClick(event);
+		}
+
+		createItem (data) {
+			let item = new Item({
+				el: document.querySelector('.books'),
+				data
+			});
 		}
 	}
 

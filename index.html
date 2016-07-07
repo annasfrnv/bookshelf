@@ -47,28 +47,31 @@
         </a>
         <p>My current, past & future <br> readings are all in one place.</p>
 
-        <a href="#" class="btn add-btn">Add new</a>
+        <a href="#" class="form__add-cta btn">Add new</a>
     </header>
 
-    <section class="form-area hidden">
+    <section class="form-area hidden"></section>
+    
+    <main class="books container"></main>
+
+    <script type="text/x-tmpl" id="form">
         <span class="form__delete"></span>
         <form class="form pure-form">
             <fieldset>
-                <legend>Add new book</legend>
-
-                <input type="text" name="title" class="form__title" placeholder="Title"> 
-                <input type="text" name="description" class="form__description" placeholder="Short description">
-                <input type="text" name="url" class="form__link" placeholder="Amazon URL">
+                <legend><%this.title%></legend>
+                
+                <!-- <input type="file" name="pic" accept="image/*"> -->
+                <input type="text" name="title" class="form__title" placeholder="Title" required> 
+                <input type="text" name="description" class="form__description" placeholder="Short description" required>
+                <input type="text" name="url" class="form__link" placeholder="Link to bookstore" required>
                 
                 <div class="form__control-buttons">
                     <button type="reset" class="pure-button">reset</button>
-                    <button type="submit" class="button-success pure-button">submit</button>
+                    <button type="submit" class="form__submit button-success pure-button">submit</button>
                 </div>
             </fieldset>
         </form>
-    </section>
-    
-    <main class="books container"></main>
+    </script>
 
     <script type="text/x-tmpl" id="books">
          <%for(let i=0; i < this.items.length; i++ ) {%>
