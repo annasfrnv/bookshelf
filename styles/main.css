@@ -256,4 +256,8 @@ a.btn:hover {
     width: 100%;
     margin-bottom: 0;
   }
+  .book__cover,
+  .book__content {
+    width: 100%;
+  }
 }
