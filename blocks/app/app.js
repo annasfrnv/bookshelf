@@ -37,7 +37,6 @@
 					href: 	'http://www.mann-ivanov-ferber.ru/books/na-predele/'
 				},
 
-
 			]
 		}
 	});

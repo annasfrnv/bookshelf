@@ -54,17 +54,17 @@
 
 		_onClick (event) {
 
-			event.preventDefault();
-
 			let target = event.target;
 			let hidden = true;
 
 			if (target.classList.contains('form__add-cta')) {
+				event.preventDefault();
 				this.form.classList.remove('hidden');
 				hidden = false;
 			}
 
 			if (target.classList.contains('form__delete') || target.classList.contains('form__submit')) {
+				event.preventDefault();
 				this.form.classList.add('hidden');
 				hidden = true;
 			}

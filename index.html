@@ -60,7 +60,7 @@
             <fieldset>
                 <legend>Add new book:</legend>
                 
-                <input type="file" name="cover">
+                <input type="file" name="cover" accept="image/*">
                 <input type="text" name="title" class="form__title" placeholder="Title" required="required"> 
                 <input type="text" name="blurb" class="form__blurb" placeholder="Short description" required="required">
                 <input type="text" name="href" class="form__link" placeholder="Link to bookstore" required="required">
@@ -78,7 +78,7 @@
             <div class="book">
                 <span class="book__delete"></span>
                 <div class="book__cover">
-                    <a href="<%this.items[i].href%>"><img src="<%this.items[i].cover%>" alt="Book title"></a>
+                    <a href="<%this.items[i].href%>" target="_blank"><img src="<%this.items[i].cover%>" alt="Book title"></a>
                 </div>
 
                 <div class="book__content">
@@ -89,7 +89,11 @@
             </div>
         <%}%>
     </script>
-    
+
+<!-- Firebase --> 
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
 <!-- Template Engine -->
 <script type="text/javascript" src="template/engine.js"></script>
@@ -99,7 +103,7 @@
 <script type="text/javascript" src="blocks/items/items.js"></script>
 
 <!-- Application -->
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="blocks/app/app.js"></script>
 
 </body>
 </html>

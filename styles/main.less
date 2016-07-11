@@ -113,6 +113,7 @@ a.btn {
 --------------------------------------------- */
 .form-area {
 	width: 35%;
+	min-width: 400px;
 	margin: 2em auto;
 	background-color: white;
 	padding: 1.5em 3em;
@@ -224,7 +225,9 @@ a.btn {
 }
 
 
-// animation
+/* Animation
+ *  
+--------------------------------------------- */
 
 .removed-item {
     animation: removed-item-animation .8s cubic-bezier(.65,-0.02,.72,.29);
@@ -250,5 +253,44 @@ a.btn {
         opacity: 0;
         transform: translateX(-800px);
     }
+}
+
+/* Media queries
+ *  
+--------------------------------------------- */
+
+
+@media (max-width: 1250px) {
+
+	.book {
+		width: 45%;
+	}
+
+}
+
+@media (max-width: 815px) {
+	.book {
+		width: 100%;
+	}
+}
+
+@media (max-width: 485px) {
+
+	.form-area {
+		width: 90%;
+		min-width: 0;
+	}
+
+	.form__control-buttons {
+		width: 100%;
+		margin-top: 1em;
+
+		button {
+			height: 45px;
+			width: 100%;
+			margin-bottom: 0;
+		}
+	}
+
 }
 
