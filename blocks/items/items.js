@@ -1,35 +1,71 @@
 (function () {
 	'use strict';
 
+	let templateEngine = window.templateEngine;
+
 	class Item {
 		constructor (options) {
 			this.el = options.el;
 			this.data = options.data;
+			this._template = document.querySelector(options.template).innerHTML;
 
 			this.render();
-
 			this._initEvents();
 		}
 
-		get _template () {
-			return document.querySelector('#books').innerHTML;
+		/**
+		 * Добавляем элемент меню
+		 * @param {Object} item
+		 */
+		addItem (item) {
+			this.data.items.push(item);
+			this.render();
+		}
+
+		/**
+		 * Удаляем пункт меню из данных
+		 * @param  {Object} itemIndex
+		 */
+		removeItem (itemIndex) {
+
+			if (itemIndex > -1) {
+			    this.data.items.splice(itemIndex, 1);
+			}
+
+			this.render();
 		}
 
 		render () {
-			this.el.insertAdjacentHTML('beforeend', TemplateEngine(this._template, this.data));
+			this.el.innerHTML = templateEngine(this._template, this.data);
+		}
+
+		/**
+		* Сообщение миру о случившемся
+		* @param {string} name тип события
+		* @param {Object} data объект события
+		*/
+		trigger (name, data) {
+			let widgetEvent = new CustomEvent(name, {
+				bubbles: true,
+				detail: data
+			});
+
+			this.el.dispatchEvent(widgetEvent);
 		}
 
 		_initEvents () {
-			this.el.addEventListener('click', this._removeItem.bind(this));
+			this.el.addEventListener('click', this._removeOnClick.bind(this));
 		}
 
-		_removeItem () {
+		_removeOnClick (event) {
 			let target = event.target;
+			let items = Array.prototype.slice.call( this.el.children );
 
 		    if (target.classList.contains('book__delete')) {
-		    	this.el.removeChild(target.parentNode);
+		    	this.trigger('remove', items.indexOf(target.parentNode));
 		    }
 		}
+
 	}
 
 	//Export

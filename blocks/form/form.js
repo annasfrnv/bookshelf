@@ -1,25 +1,48 @@
 (function () {
 	'use strict';
 
+	let templateEngine = window.templateEngine;
+
 	class Form {
 		constructor(options) {
 			this.el = options.el;
-			this.form = this.el.querySelector('.form-area');
+			this.data = options.data;
+			this._template = document.querySelector(options.template).innerHTML;
 			
-			this.data = {};
+			
+			this.form = this.el.querySelector('.form-area');
+
 			this.render();
-
 			this.submitBtn = this.el.querySelector('.form__submit');
-
 			this._initEvents();
 		}
 
-		get _template () {
-			return document.querySelector('#form').innerHTML;
+		render () {
+			this.form.innerHTML = templateEngine(this._template);
 		}
 
-		render () {
-			this.form.innerHTML = TemplateEngine(this._template);
+		/**
+		 * Get form's field by name
+		 * @param  {string} name
+		 * @return {HTMLElement}
+		 */
+		getField (name) {
+			return this.el.querySelector(`[name="${name}"]`);
+		}
+
+		/**
+		* Сообщение миру о случившемся
+		* @param {string} name тип события
+		* @param {Object} data объект события
+		*/
+		trigger (name, data) {
+			let widgetEvent = new CustomEvent(name, {
+				bubbles: true,
+				detail: data
+
+			});
+
+			this.el.dispatchEvent(widgetEvent);
 		}
 
 
@@ -51,19 +74,12 @@
 		_onSubmit (event) {
 		    event.preventDefault();
 
-		    this.data = {
-
-		    	items: [
-					{
-						cover: 	'img/book1.jpg',
-						title: 	this.el.querySelector('[name="title"]').value,
-						blurb: 	this.el.querySelector('[name="description"]').value,
-						href: 	this.el.querySelector('[name="url"]').value
-					}
-		    	]
-		    };
-
-		    this.createItem(this.data);
+		    this.trigger('add', {
+				cover: 	this.getField('cover').value,
+				title: 	this.getField('title').value,
+				blurb: 	this.getField('blurb').value,
+				href: 	this.getField('href').value
+			});
 
 		    this.el.querySelector('form').reset();
 		    this._onClick(event);
@@ -74,15 +90,8 @@
 				this.el.querySelector('form').reset();
 			}
 		}
-
-		createItem (data) {
-			let item = new Item({
-				el: document.querySelector('.books'),
-				data
-			});
-		}
 	}
 
-	//Export
-	window.Form = Form;
+		//Export
+		window.Form = Form;
 })(window);

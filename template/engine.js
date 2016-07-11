@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	var TemplateEngine = function(html, options) {
+	var templateEngine = function(html, options) {
 		var re = /<%([^%>]+)?%>/g, reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g, code = 'var r=[];\n', cursor = 0, match;
 		var add = function(line, js) {
 			js? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') :
@@ -17,6 +17,6 @@
 		return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
 	}
 
-	window.TemplateEngine = TemplateEngine;
+	window.templateEngine = templateEngine;
 
 })(window);

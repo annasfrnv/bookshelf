@@ -1,12 +1,18 @@
 (function () {
 	'use stict';
 
+	//import
+	let Form = window.Form;
+	let Item = window.Item;
+
 	let form = new Form({
-		el: document.querySelector('body')
+		el: document.querySelector('body'),
+		template: '#form'
 	});
 
-	let book = new Item({
+	let item = new Item({
 		el: document.querySelector('.books'),
+		template: '#books',
 
 		data: {
 			items: [
@@ -35,5 +41,15 @@
 			]
 		}
 	});
+
+	form.el.addEventListener('add', function (event) {
+		item.addItem(event.detail);
+	});
+
+	item.el.addEventListener('remove', function (event) {
+		item.removeItem(event.detail);
+	});
+
+	window.item = item;
 
 })();
