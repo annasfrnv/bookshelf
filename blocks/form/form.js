@@ -7,13 +7,11 @@
 		constructor(options) {
 			this.el = options.el;
 			this.data = options.data;
-			this._template = document.querySelector(options.template).innerHTML;
-			
-			
 			this.form = this.el.querySelector('.form-area');
 
+			this._template = document.querySelector(options.template).innerHTML;
+
 			this.render();
-			this.submitBtn = this.el.querySelector('.form__submit');
 			this._initEvents();
 		}
 
@@ -48,12 +46,10 @@
 
 		_initEvents () {
 			this.el.addEventListener('click', this._onClick.bind(this));
-			this.submitBtn.addEventListener('click', this._onSubmit.bind(this));
-			this.form.addEventListener('click', this._onReset.bind(this));
+			this.form.addEventListener('submit', this._onSubmit.bind(this));
 		}
 
 		_onClick (event) {
-
 			let target = event.target;
 			let hidden = true;
 
@@ -72,7 +68,9 @@
 
 
 		_onSubmit (event) {
+			debugger;
 		    event.preventDefault();
+		    console.log("opp");
 
 		    this.trigger('add', {
 				cover: 	this.getField('cover').value,
@@ -82,14 +80,8 @@
 			});
 
 		    this.el.querySelector('form').reset();
-		    this._onClick(event);
 		}
 
-		_onReset (event) {
-			if (event.target.querySelector('[type=reset]')) {
-				this.el.querySelector('form').reset();
-			}
-		}
 	}
 
 		//Export
