@@ -20,10 +20,10 @@
 
 		/**
 		 * Загрузка данных с сервера
-		 * @param  {Function} resolve
+		 * @param  {Function} callback
 		 * @return {XMLHttpRequest}
 		 */
-		fetch (resolve) {
+		fetch (callback) {
 			let req = this._makeRequest('GET');
 
 			req.onreadystatechange = () => {
@@ -33,9 +33,16 @@
 					console.log('error!')
 				} else {
 					let data = this.parse(req.responseText);
-					this.data = data;
+					let items = [];
 
-					resolve(this.getData());
+					for( var key in data ) {
+						data[key].name = key;
+						items.push(data[key]);
+					}
+
+					this.data = { items: items };
+
+					callback(this.getData());
 				}
 			}
 
@@ -44,25 +51,40 @@
 			return req;
 		}
 
-		save (resolve) {
-			let req = this._makeRequest('POST');
+		save (callback) {
+			let reader = new FileReader();
 
-			req.onreadystatechange = () => {
-				if (req.readyState != 4) return;
+			reader.readAsDataURL( this.data.cover );
 
-				if (req.status != 200) {
-					//TODO: обаботать ошибки запроса
-				} else {
-					let data = this.parse(req.responseText);
-					this.data = data;
+			reader.onload = (event) => {
+				let req = this._makeRequest('POST');
+				this.data.cover = event.target.result;
 
-					resolve(this);
+				req.onreadystatechange = () => {
+					if (req.readyState != 4) return;
+
+					if (req.status != 200) {
+						console.log('error!');
+					} else {
+						let data = this.parse(req.responseText);
+						this.data.name = data.name;
+
+						callback(this.data);
+					}
 				}
+
+				let reqString = JSON.stringify(this.getData());
+				req.send(reqString);
 			}
 
-			let reqString = JSON.stringify(this.getData());
-			req.send(reqString);
 		}
+
+        delete(itemId) {
+        	let req = new XMLHttpRequest();
+
+			req.open('DELETE', BASE_URL + this.url + '/' + itemId + '.json', false);
+			req.send();
+        }
 
 		/**
 		 * Создание объекта запроса
@@ -72,7 +94,7 @@
 		_makeRequest (method) {
 			let xhr = new XMLHttpRequest();
 
-			xhr.open(method, BASE_URL + this.url + '/' + this.id + '.json', false);
+			xhr.open(method, BASE_URL + this.url + '.json', false);
 			return xhr;
 		}
 

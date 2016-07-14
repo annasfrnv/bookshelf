@@ -35,7 +35,18 @@
 			this.render();
 		}
 
+		getNameByIndex (itemIndex) {
+			let itemName = null;
+
+			if (itemIndex > -1) {
+				itemName = this.data.items[itemIndex].name;
+			}
+
+			return itemName;
+		}
+
 		render (data) {
+
 			if (data) {
 	 			this.data = data;
 	 		}
@@ -69,6 +80,14 @@
 		    if (target.classList.contains('book__delete')) {
 		    	this.trigger('remove', items.indexOf(target.parentNode));
 		    }
+		}
+
+		_animateLoading (on, object) { 
+			if (on) {
+				object.className += ' animate-spin';
+			} else {
+				object.className = object.className.replace(' animate-spin', '');
+			}
 		}
 	}
 

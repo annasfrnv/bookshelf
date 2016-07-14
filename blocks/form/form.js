@@ -37,7 +37,6 @@
 			let widgetEvent = new CustomEvent(name, {
 				bubbles: true,
 				detail: data
-
 			});
 
 			this.el.dispatchEvent(widgetEvent);
@@ -63,12 +62,11 @@
 			}
 		}
 
-
 		_onSubmit (event) {
 		    event.preventDefault();
 
 		    this.trigger('add', {
-				cover: 	this.getField('cover').value,
+				cover: 	this.getField('cover').files[0],
 				title: 	this.getField('title').value,
 				blurb: 	this.getField('blurb').value,
 				href: 	this.getField('href').value
@@ -76,9 +74,7 @@
 
 		    this.el.querySelector('form').reset();
 		    this.form.classList.add('hidden');
-				
 		}
-
 	}
 
 	//Export
