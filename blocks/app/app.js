@@ -4,6 +4,7 @@
 	//import
 	let Form = window.Form;
 	let Item = window.Item;
+	let Model = window.Model;
 
 	let form = new Form({
 		el: document.querySelector('body'),
@@ -41,14 +42,25 @@
 		}
 	});
 
+	let model = new Model({
+		url: 'data',
+		data: {},
+		id: '-KMcAQFSNvuN5wGmLhG-'
+	});
+
 	form.el.addEventListener('add', function (event) {
 		item.addItem(event.detail);
+		model.setData(item.data);
+		model.save(); // сохранить на сервере
 	});
 
 	item.el.addEventListener('remove', function (event) {
 		item.removeItem(event.detail);
 	});
 
+	model.fetch(item.render.bind(item));
+
 	window.item = item;
 
 })();
+

@@ -76,7 +76,7 @@ a.btn:hover {
 .hidden {
   display: none;
 }
-/* Content:header
+/* Content: header
  *  
 --------------------------------------------- */
 .header {
@@ -99,7 +99,7 @@ a.btn:hover {
   display: inline-block;
   margin-right: 2px;
 }
-/* Content:add new book form
+/* Content: add new book form
  *  
 --------------------------------------------- */
 .form-area {
@@ -154,7 +154,7 @@ a.btn:hover {
   box-shadow: none;
   margin-top: .5em;
 }
-/* Content:book block
+/* Content: book block
  *  
 --------------------------------------------- */
 .books {

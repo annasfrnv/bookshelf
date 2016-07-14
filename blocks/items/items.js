@@ -18,7 +18,7 @@
 		 * @param {Object} item
 		 */
 		addItem (item) {
-			this.data.items.push(item);
+			this.data.items.unshift(item);
 			this.render();
 		}
 
@@ -35,8 +35,13 @@
 			this.render();
 		}
 
-		render () {
+		render (data) {
+			if (data) {
+	 			this.data = data;
+	 		}
+
 			this.el.innerHTML = templateEngine(this._template, this.data);
+
 		}
 
 		/**
@@ -65,7 +70,6 @@
 		    	this.trigger('remove', items.indexOf(target.parentNode));
 		    }
 		}
-
 	}
 
 	//Export
