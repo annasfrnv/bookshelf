@@ -16,7 +16,7 @@ class Model {
 	}
 
 	/**
-	 * Загрузка данных с сервера
+	 * Fetch data from database
 	 * @param  {Function} callback
 	 * @return {XMLHttpRequest}
 	 */
@@ -84,7 +84,7 @@ class Model {
     }
 
 	/**
-	 * Создание объекта запроса
+	 * Create request
 	 * @param {string} method - HTTP method
 	 * @return {XMLHttpRequest}
 	 */
@@ -96,7 +96,7 @@ class Model {
 	}
 
 	/**
-	 * Преобразлвание тескта отвева в данные
+	 * Parse JSON response
 	 * @param {string} responseText
 	 * @return {Object}
 	 */

@@ -1,0 +1,53 @@
+/* Content: book block
+ *  
+--------------------------------------------- */
+
+/* Settings
+--------------------------------------------- */
+@import '../../styles/settings/_variables.less';
+@import '../../styles/settings/_global.less';
+
+.books { margin-top: 3em; }
+
+.book {
+	width: 30%;
+	min-width: 350px;
+	min-height: 225px;
+	background-color: white;
+	position: relative;
+	display: inline-block;
+	margin-right: 2%;
+	margin-bottom: 2em;
+	box-shadow: 0px 3px 8px -4px rgba(0,0,0,0.15);
+}
+
+.form__delete,
+.book__delete {
+	display: block;
+	background: url(../img/close.svg) no-repeat;
+	background-size: contain;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: .8em;
+	top: 1.3em;
+	cursor: pointer;
+	&:hover {
+		opacity: .5;
+	}
+}
+.book__cover {
+	float: left;
+	width: 155px;
+	img {
+		display: block;
+	}
+}
+.book__content {
+	float: left;
+	width: 195px;
+	padding: 2em 1em 2em 1.5em;
+	h3 {
+		margin-top: 0;
+	}
+}

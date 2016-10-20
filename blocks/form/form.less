@@ -1,0 +1,68 @@
+
+/* Content: add new book form
+ *  
+--------------------------------------------- */
+
+/* Settings
+--------------------------------------------- */
+@import '../../styles/settings/_variables.less';
+@import '../../styles/settings/_global.less';
+
+.form-area {
+	width: 35%;
+	min-width: 400px;
+	margin: 2em auto;
+	background-color: white;
+	padding: 1.5em 3em;
+	position: relative;
+
+	.form__cta--delete {
+		cursor: pointer;
+		position: absolute;
+		top: 1.3em;
+		right: 2em;
+		font-size: 1.4em;
+		width: 30px;
+
+
+		&:hover {
+			opacity: .5;
+		}
+	}
+}
+
+.form legend {
+	margin-bottom: .5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: none;
+}
+
+.form__control-buttons {
+	margin-top: 2em;
+	float: right;
+
+	button { 
+		margin-left: .2em; 
+		color: white;
+		text-transform: uppercase;
+		font-size: .9em;
+		font-weight: bold;
+		padding: 10px 25px;
+	}
+
+	.pure-button { background-color: #999; }
+
+	.button-success {
+		background-color: @mint;
+	}
+}
+
+.pure-form input[type=text]:focus { border-color: @mint; }
+
+.pure-form input[type=text] { 
+	padding: 10px;
+	width: 100%; 
+	box-shadow: none;
+	margin-top: .5em;
+}

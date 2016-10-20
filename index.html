@@ -16,9 +16,9 @@
 
         <!-- CSS
         –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-        <link rel="stylesheet" href="styles/normalize.css">
-        <link rel="stylesheet" href="styles/pure-min.css">
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/vendor/normalize.css">
+        <link rel="stylesheet" href="styles/vendor/pure-min.css">
+        <link rel="stylesheet" href="styles/main.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <!-- FONTS
@@ -51,9 +51,15 @@
     </header>
 
     <section class="form-area hidden"></section>
-    
-    <main class="books container"></main>
 
+
+    <!-- Main container
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <main class="books container"></main>
+    
+
+    <!-- Form template generator
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="text/x-tmpl" id="form">
         <span class="form__delete"></span>
         <form class="form pure-form">
@@ -73,6 +79,8 @@
         </form>
     </script>
 
+    <!-- Item template generator
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="text/x-tmpl" id="books">
          <%for(let i=0; i < this.items.length; i++ ) {%>
             <div class="book">

@@ -1,0 +1,52 @@
+@import '../settings/_variables.less';
+@import '../settings/_global.less';
+
+@import '../blocks/form/form.less';
+@import '../blocks/items/items.less';
+
+/* Media queries
+ *  
+--------------------------------------------- */
+@media (max-width: 1250px) {
+
+	.book {
+		width: 45%;
+	}
+
+}
+
+@media (max-width: 815px) {
+	.book {
+		width: 100%;
+	}
+
+	.book__content {
+		width: 60%;
+	}
+}
+
+@media (max-width: 485px) {
+
+	.form-area {
+		width: 90%;
+		min-width: 0;
+	}
+
+	.form__control-buttons {
+		width: 100%;
+		margin-top: 1em;
+
+		button {
+			height: 45px;
+			width: 100%;
+			margin-bottom: 0;
+		}
+	}
+
+	.book__cover,
+	.book__content {
+		width: 100%;
+	}
+
+}
+

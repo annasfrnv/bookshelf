@@ -11,7 +11,7 @@ class Item {
 	}
 
 	/**
-	 * Добавляем элемент меню
+	 * Add new item
 	 * @param {Object} item
 	 */
 	addItem (item) {
@@ -20,11 +20,10 @@ class Item {
 	}
 
 	/**
-	 * Удаляем пункт меню из данных
-	 * @param  {Object} itemIndex
+	 * Remove item from data
+	 * @param {Object} itemIndex
 	 */
 	removeItem (itemIndex) {
-
 		if (itemIndex > -1) {
 		    this.data.items.splice(itemIndex, 1);
 		}
@@ -43,19 +42,17 @@ class Item {
 	}
 
 	render (data) {
-
 		if (data) {
  			this.data = data;
  		}
 
 		this.el.innerHTML = templateEngine(this._template, this.data);
-
 	}
 
 	/**
-	* Сообщение миру о случившемся
-	* @param {string} name тип события
-	* @param {Object} data объект события
+	* Trigger an event
+	* @param {string} name - event's type
+	* @param {Object} data - event's object
 	*/
 	trigger (name, data) {
 		let widgetEvent = new CustomEvent(name, {

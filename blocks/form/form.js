@@ -26,7 +26,7 @@ class Form {
 	}
 
 	/**
-	* Сообщение миру о случившемся
+	* Trigger an event
 	* @param {string} name тип события
 	* @param {Object} data объект события
 	*/

@@ -23,7 +23,7 @@ form.el.addEventListener('add', function (event) {
 	model.setData(event.detail);
 	model.save(function(itemData){
 		item.addItem(itemData);
-	}); // сохранить на сервере
+	}); // save on server
 });
 
 item.el.addEventListener('remove', function (event) {
